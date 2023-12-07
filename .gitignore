@@ -1,0 +1,6 @@
+*.hex
+*.o
+*.bin
+code/riscv_tests
+.*
+!.gitignore
