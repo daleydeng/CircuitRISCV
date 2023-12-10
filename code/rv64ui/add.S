@@ -1,7 +1,18 @@
+# See LICENSE for license details.
+
+#*****************************************************************************
+# add.S
+#-----------------------------------------------------------------------------
+#
+# Test add instruction.
+#
+
 #include "riscv_test.h"
 #include "test_macros.h"
 
-RVTEST_CODE_BEGIN(add)
+RVTEST_RV64U
+RVTEST_CODE_BEGIN
+
   #-------------------------------------------------------------
   # Arithmetic tests
   #-------------------------------------------------------------
@@ -53,7 +64,6 @@ RVTEST_CODE_BEGIN(add)
   TEST_RR_SRC21_BYPASS( 29, 0, 0, add, 24, 13, 11 );
   TEST_RR_SRC21_BYPASS( 30, 0, 1, add, 25, 14, 11 );
   TEST_RR_SRC21_BYPASS( 31, 0, 2, add, 26, 15, 11 );
-
   TEST_RR_SRC21_BYPASS( 32, 1, 0, add, 24, 13, 11 );
   TEST_RR_SRC21_BYPASS( 33, 1, 1, add, 25, 14, 11 );
   TEST_RR_SRC21_BYPASS( 34, 2, 0, add, 26, 15, 11 );
@@ -62,5 +72,14 @@ RVTEST_CODE_BEGIN(add)
   TEST_RR_ZEROSRC2( 36, add, 32, 32 );
   TEST_RR_ZEROSRC12( 37, add, 0 );
   TEST_RR_ZERODEST( 38, add, 16, 30 );
-  
+
+  TEST_PASSFAIL
+
 RVTEST_CODE_END
+
+  .data
+RVTEST_DATA_BEGIN
+
+  TEST_DATA
+
+RVTEST_DATA_END

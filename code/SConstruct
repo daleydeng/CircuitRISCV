@@ -1,0 +1,27 @@
+import os
+from os import path
+
+main = 'riscv_tests'
+srcs = [f'{main}.s'] + [i for i in os.listdir('src') if i.endswith('.s') and i != f'{main}.s']
+names = [path.splitext(path.basename(i))[0] for i in srcs]
+
+objs = []
+env = Environment()
+for name in names:
+    env.Command(f'out/{name}.s', [f'src/{name}.s', 'src/riscv_test.h', 'src/test_macros.h'], 
+                'riscv-none-elf-cpp -I ./src -E ${SOURCE} >${TARGET}')
+    obj = f'out/{name}.o'
+    env.Command(obj, f'out/{name}.s', 'riscv-none-elf-gcc -c ${SOURCE} -march=rv32i -o ${TARGET}')
+    objs.append(obj)
+
+env.Command(f'{main}', objs, 'riscv-none-elf-ld --gc-sections -o ${TARGET} -T src/link.lds ${SOURCES}')
+env.Command(f'{main}_text.bin', f'{main}', 'riscv-none-elf-objcopy -O binary -j .text ${SOURCE} ${TARGET}')
+env.Command(f'{main}_text.hex', f'{main}_text.bin', "od -t x4 ${SOURCE} -A n -v |  sed -e '1s/^/v3.0 hex words plain\\n/' > ${TARGET}")
+
+env.Command(f'{main}_data.bin', f'{main}', 'riscv-none-elf-objcopy -O binary -j .data ${SOURCE} ${TARGET}')
+env.Command(f'{main}_data.hex', f'{main}_data.bin', "od -t x4 ${SOURCE} -A n -v |  sed -e '1s/^/v3.0 hex words plain\\n/' > ${TARGET}")
+
+env.Command('dis', f'{main}', 'riscv-none-elf-objdump.exe -d ${SOURCE} -M numeric')
+env.Command('clean', '', f'rm -rf out *.hex *.bin {main}')
+
+Default([f'{main}_text.hex', f'{main}_data.hex'])

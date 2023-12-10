@@ -3,12 +3,6 @@
 #ifndef __TEST_MACROS_SCALAR_H
 #define __TEST_MACROS_SCALAR_H
 
-#define __riscv_xlen 32
-#define TESTNUM gp
-#define RETREG x30
-#define CALL jal RETREG, 
-#define RET  jr RETREG
-
 /*
 #-----------------------------------------------------------------------
 # Helper macros
