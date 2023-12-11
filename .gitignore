@@ -1,7 +1,7 @@
 *.hex
 *.o
 *.bin
-code/riscv_tests
+bin/
 out/
 .*
 !.gitignore

@@ -1,0 +1,45 @@
+import os
+from os import path as osp
+
+# TODO: add bin directory
+
+main = 'echo'
+
+srcs = ['echo.s']
+names = [osp.splitext(osp.basename(i))[0] for i in srcs]
+
+objs = []
+env = Environment()
+
+def filename(f):
+    return osp.splitext(osp.basename(f))[0]
+
+def compile(obj, src=None, tmp=None):
+    n = filename(obj)
+    if not src:
+        src = f'src/{n}.s'
+    if not tmp:
+        tmp = f'out/{n}.s'
+
+    env.Command(tmp, src, 'riscv-none-elf-cpp -I ./src -E ${SOURCE} >${TARGET}')
+    env.Command(obj, tmp, 'riscv-none-elf-gcc -c ${SOURCE} -march=rv32i -o ${TARGET}')
+
+def bin2hex(bin_f, hex_f=None):
+    if not hex_f:
+        hex_f = osp.splitext(bin_f)[0]+'.hex'
+    env.Command(hex_f, bin_f, "od -t x4 ${SOURCE} -A n -v |  sed -e '1s/^/v3.0 hex words plain\\n/' > ${TARGET}")
+
+for name in names:
+    obj = f'out/{name}.o'
+    objs.append(obj)
+    compile(obj)
+
+env.Command(f'bin/{main}', ['src/link.lds'] + objs, 'riscv-none-elf-ld --gc-sections -o ${TARGET} -T ${SOURCES}')
+env.Command(f'bin/{main}_text.bin', f'bin/{main}', 'riscv-none-elf-objcopy -O binary -j .text ${SOURCE} ${TARGET}')
+bin2hex(f'bin/{main}_text.bin')
+
+env.Command('dis', f'bin/{main}', 'riscv-none-elf-objdump.exe -d ${SOURCE}')
+env.Command('disn', f'bin/{main}', 'riscv-none-elf-objdump.exe -d ${SOURCE} -M numeric')
+env.Command('clean', '', f'rm -rf out bin')
+
+Default([f'bin/{main}_text.hex'])
