@@ -3,5 +3,6 @@
 *.bin
 bin/
 out/
+__pycache__/
 .*
 !.gitignore

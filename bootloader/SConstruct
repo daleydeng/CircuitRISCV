@@ -1,17 +1,17 @@
-import sys
 import os
 from os import path as osp
-sys.path.insert(0, osp.abspath('../../scripts'))
-from scons_lib import env, compile, bin2hex, set_env
+import sys
+sys.path.insert(0, osp.abspath('../scripts'))
+from scons_lib import set_env, compile, bin2hex
 
-main = 'echo'
+main = 'boot'
 
-srcs = ['echo.s']
+srcs = ['boot.s']
 names = [osp.splitext(osp.basename(i))[0] for i in srcs]
 
+objs = []
 env = set_env(Environment())
 
-objs = []
 for name in names:
     obj = f'out/{name}.o'
     objs.append(obj)
