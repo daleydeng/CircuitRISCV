@@ -21,20 +21,10 @@ for name in names:
 compile('out/riscv_tests.o')
 compile('out/dummy_init.o')
 
-env.Command(f'bin/{main}0', ['src/link.lds', 'out/riscv_tests.o', 'out/dummy_init.o'] + objs, 'riscv-none-elf-ld --gc-sections -o ${TARGET} -T ${SOURCES}')
-env.Command(f'bin/{main}0_rodata.bin', f'bin/{main}0', 'riscv-none-elf-objcopy -O binary -j .rodata ${SOURCE} ${TARGET}')
-bin2hex(f'bin/{main}0_rodata.bin')
-env.Command(f'bin/{main}0_data.bin', f'bin/{main}0', 'riscv-none-elf-objcopy -O binary -j .data ${SOURCE} ${TARGET}')
-bin2hex(f'bin/{main}0_data.bin')
-
-env.Command(f'src/init.s', [f'bin/{main}0_rodata.hex', f'bin/{main}0_data.hex'], './gen_load_data.py --rodata=${SOURCES[0]} --data=${SOURCES[1]}> ${TARGET}')
-
-compile('out/init.o')
-env.Command(f'bin/{main}', ['src/link.lds', 'out/riscv_tests.o', 'out/init.o'] + objs, 'riscv-none-elf-ld --gc-sections -o ${TARGET} -T ${SOURCES}')
-env.Command(f'bin/{main}_text.bin', f'bin/{main}', 'riscv-none-elf-objcopy -O binary -j .text ${SOURCE} ${TARGET}')
-bin2hex(f'bin/{main}_text.bin')
+env.Command(f'bin/{main}', ['src/link.lds', 'out/riscv_tests.o'] + objs, 'riscv-none-elf-ld --gc-sections -o ${TARGET} -T ${SOURCES}')
+env.Command(f'bin/{main}.hex', [f'bin/{main}', '../scripts/gen_text.py'], '../scripts/gen_text.py ${SOURCE} > ${TARGET}')
 
 env.Command('dis', f'bin/{main}', 'riscv-none-elf-objdump.exe -d ${SOURCE} -M numeric')
 env.Command('clean', '', f'rm -rf bin out')
 
-Default([f'bin/{main}_text.hex'])
+Default([f'bin/{main}.hex'])

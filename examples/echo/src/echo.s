@@ -1,20 +1,30 @@
-.text
+.equ TTY_BASE, 0x100
+.equ KB_BASE, 0x110
+.equ TTY_ADDR_PUTCHAR, TTY_BASE
+.equ TTY_SET_ENABLE, TTY_BASE + 1
+.equ TTY_CLEAR,TTY_BASE + 2
+.equ KB_GETCHAR, KB_BASE
+.equ KB_ENABLE, KB_BASE + 1
+.equ KB_POP, KB_BASE + 2
+.equ KB_CLEAR, KB_BASE + 3
+
+.section .text
 .global _start
+
 _start: 
     la sp, .stack;
     la gp, .rodata;
 
-    call init_data;
+    call boot;
 
     li a0, 0x1;
     call tty_set_enable;
     li a0, 0x1;
     call kb_set_enable;
 
-    la a0, say_str;
+    la a0, say_st;
     call puts;
 
-    
     # call clear_tty;
     # li a0, 0x0;
     # call tty_set_enable;
@@ -34,34 +44,9 @@ _clear_tty:
 
 wait: j wait;
 
-init_data: // hack
-    li t0, 'h';
-    sb t0, 0(gp);
-    li t0, 'e';
-    sb t0, 1(gp);
-    li t0, 'l';
-    sb t0, 2(gp);
-    li t0, 'l';
-    sb t0, 3(gp);
-    li t0, 'o';
-    sb t0, 4(gp);
-    li t0, ' ';
-    sb t0, 5(gp);
-    li t0, 'w';
-    sb t0, 6(gp);
-    li t0, 'o';
-    sb t0, 7(gp);
-    li t0, 'r';
-    sb t0, 8(gp);
-    li t0, 'l';
-    sb t0, 9(gp);
-    li t0, 'd';
-    sb t0, 10(gp);
-    ret
-
 putchar:
-    li t0, 0x1000
-    sb a0, 0(t0)
+    li t0, TTY_ADDR_PUTCHAR;
+    sb a0, 0(t0);
     ret
 
 puts:
@@ -88,19 +73,19 @@ _puts_done:
     ret;
 
 tty_set_enable:
-    li t0, 0x1001
-    mv t1, a0
-    sb t1, 0(t0)
+    li t0, TTY_SET_ENABLE;
+    mv t1, a0;
+    sb t1, 0(t0);
     ret
 
 clear_tty:
-    li t0, 0x1002
-    li t1, 0x1
-    sb t1, 0(t0)
+    li t0, TTY_CLEAR;
+    li t1, 0x1;
+    sb t1, 0(t0);
     ret
 
 kb_set_enable:
-    li t0, 0x2001
+    li t0, KB_ENABLE
     mv t1, a0
     sb t1, 0(t0)
     ret
@@ -110,7 +95,7 @@ getchar:
     sw ra, 0(sp);
     sw s0, 4(sp);
 
-    li t0, 0x2000;
+    li t0, KB_GETCHAR;
 
 _getchar_loop:
     lb a0, 0(t0)
@@ -126,7 +111,7 @@ _getchar_loop:
     ret
 
 pop_kb:
-    li t0, 0x2002
+    li t0, KB_POP;
     li a0, 1;
     sb a0, 0(t0);
     li a0, 0;
@@ -134,10 +119,31 @@ pop_kb:
     ret 
 
 clear_kb:
-    li t0, 0x2003
+    li t0, KB_CLEAR;
     li a0, 1;
     sb a0, 0(t0);
     ret
 
-.rodata:
-say_str: .asciz "hello world!"
+boot:
+  la t1, .text_end;        # t1: data location in disk
+  la t2, .rodata;          # t2: mem data start
+  
+  la t3, .data_end;
+  la t4, .rodata;
+  sub t3, t3, t4;          # t3: data length
+  beqz t3, _boot_ret; # check length
+
+_boot_load:
+  lw t4, 0(t1);
+  sw t4, 0(t2);
+  addi t1, t1, 4;
+  addi t2, t2, 4;
+  addi t3, t3, -4;
+  bgtz t3, _boot_load;
+
+_boot_ret:
+  ret
+
+.section .rodata
+say_st: .asciz "hello world! me" 
+# 68 65 6c 6c 6f 20 77 6f 72 6c 64 21 20 6d 65, 6c6c6568 6f77206f 21646c72 00656d20

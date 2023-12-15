@@ -3,14 +3,24 @@ ENTRY(_start)
 
 SECTIONS
 {
-  . = 0x80000000;
+  . = 0x1000;
+  .text_start = .;
   .text : { *(.text) }
+  . += 0x04;
+  .text_end = .;
+
+  . = ALIGN(0x2000);
+  .rodata_start = .;
   .rodata : { *(.rodata) }
-  /* . = ALIGN(0x1000); */ /* for debugging, remove the gap */
-  . += 0x10; /* small gap */
+  . = ALIGN(0x4);
+  .rodata_end = .;
+
+  .data_start = .;
   .data : { *(.data) }
-  .bss : { *(.bss) }
+  . = ALIGN(0x4);
+  .data_end = .;
+
   . += 0x4000;
   .stack = .;
-  _end = .;
+
 }

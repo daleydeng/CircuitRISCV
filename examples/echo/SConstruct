@@ -6,6 +6,8 @@ from scons_lib import env, compile, bin2hex, set_env
 
 main = 'echo'
 
+gen_text = '../../scripts/gen_text.py'
+
 srcs = ['echo.s']
 names = [osp.splitext(osp.basename(i))[0] for i in srcs]
 
@@ -18,11 +20,10 @@ for name in names:
     compile(obj)
 
 env.Command(f'bin/{main}', ['src/link.lds'] + objs, 'riscv-none-elf-ld --gc-sections -o ${TARGET} -T ${SOURCES}')
-env.Command(f'bin/{main}_text.bin', f'bin/{main}', 'riscv-none-elf-objcopy -O binary -j .text ${SOURCE} ${TARGET}')
-bin2hex(f'bin/{main}_text.bin')
+env.Command(f'bin/{main}.hex', [f'bin/{main}', gen_text], gen_text+' ${SOURCE} > ${TARGET}')
 
 env.Command('dis', f'bin/{main}', 'riscv-none-elf-objdump.exe -d ${SOURCE}')
 env.Command('disn', f'bin/{main}', 'riscv-none-elf-objdump.exe -d ${SOURCE} -M numeric')
 env.Command('clean', '', f'rm -rf out bin')
 
-Default([f'bin/{main}_text.hex'])
+Default([f'bin/{main}.hex'])

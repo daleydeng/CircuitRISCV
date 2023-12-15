@@ -2,8 +2,11 @@
 #define RISCV_TEST_H
 #define __riscv_xlen 32
 #define DATAREG gp  //x3
-#define TMPREG x27
-#define TMPREG2 x28
+#define TR1 x25
+#define TR2 x26
+#define TR3 x27
+#define TR4 x28
+
 #define RETREG x29
 #define TESTNUM x30
 #define TESTSEC x31

@@ -4,5 +4,6 @@
 bin/
 out/
 __pycache__/
+tmp/
 .*
 !.gitignore

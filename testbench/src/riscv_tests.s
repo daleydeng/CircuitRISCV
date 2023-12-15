@@ -6,8 +6,9 @@
 
 _start: 
   la gp, .rodata;
+  la sp, .stack;
 
-  CALL(init);
+  CALL(boot);
 
   li TESTNUM, 0;
   li TESTSEC, 0;
@@ -73,6 +74,26 @@ _start:
 
   addi TESTSEC, TESTSEC, 0x100
 LOOP: j LOOP
+
+boot:
+  la TR1, .text_end;        # TR1: data address
+  la TR2, .rodata;          # mem data start
+  
+  la TR3, .data_end;
+  la TR4, .rodata;
+  sub TR3, TR3, TR4;
+  beqz TR3, _boot_ret; # check length
+
+_boot_load:
+  lw TR4, 0(TR1);
+  sw TR4, 0(TR2);
+  addi TR1, TR1, 4;
+  addi TR2, TR2, 4;
+  addi TR3, TR3, -4;
+  bgtz TR3, _boot_load;
+
+_boot_ret:
+  RET
 
 .section .rodata
 .section .data
