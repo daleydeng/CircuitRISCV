@@ -1,0 +1,29 @@
+import sys
+import os
+from os import path as osp
+sys.path.insert(0, osp.abspath('../../scripts'))
+from scons_lib import env, compile, bin2hex, set_env
+
+main = 'hello'
+
+gen_text = '../../scripts/gen_text.py'
+
+srcs = ['boot.s', 'hello.c', 'printf.c']
+names = [osp.splitext(osp.basename(i))[0] for i in srcs]
+
+env = set_env(Environment())
+
+objs = []
+for name, src in zip(names, srcs):
+    obj = f'out/{name}.o'
+    objs.append(obj)
+    compile(obj, src=f'src/{src}')
+
+env.Command(f'bin/{main}', ['src/link.lds'] + objs, 'riscv-none-elf-ld --gc-sections -o ${TARGET} -T ${SOURCES}')
+env.Command(f'bin/{main}.hex', [f'bin/{main}', gen_text], gen_text+' ${SOURCE} > ${TARGET}')
+
+env.Command('dis', f'bin/{main}', 'riscv-none-elf-objdump.exe -d ${SOURCE}')
+env.Command('disn', f'bin/{main}', 'riscv-none-elf-objdump.exe -d ${SOURCE} -M numeric')
+env.Command('clean', '', f'rm -rf out bin')
+
+Default([f'bin/{main}.hex'])

@@ -13,11 +13,15 @@ def compile(obj, src=None, tmp=None):
     n = filename(obj)
     if not src:
         src = f'src/{n}.s'
-    if not tmp:
-        tmp = f'out/{n}.s'
 
-    env.Command(tmp, src, 'riscv-none-elf-cpp -I ./src -E ${SOURCE} >${TARGET}')
-    env.Command(obj, tmp, 'riscv-none-elf-gcc -c ${SOURCE} -march=rv32i -o ${TARGET}')
+    if src.endswith('.s'):
+        if not tmp:
+            tmp = f'out/{n}.s'
+
+        env.Command(tmp, src, 'riscv-none-elf-cpp -I ./src -E ${SOURCE} >${TARGET}')
+        env.Command(obj, tmp, 'riscv-none-elf-gcc -c ${SOURCE} -march=rv32i -o ${TARGET}')
+    else:
+        env.Command(obj, src, 'riscv-none-elf-gcc -I ./src -c ${SOURCE} -march=rv32i -o ${TARGET}')
 
 def bin2hex(bin_f, hex_f=None):
     if not hex_f:
