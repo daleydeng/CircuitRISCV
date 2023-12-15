@@ -6285,33 +6285,33 @@ end TCL_Generic;
       <a name="labelfont" val="SansSerif bold 11"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(390,790)" name="Tunnel">
+    <comp lib="0" loc="(440,740)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="mem_addr"/>
       <a name="labelfont" val="SansSerif bold 11"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(390,810)" name="Tunnel">
+    <comp lib="0" loc="(440,760)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="mem_write_data"/>
       <a name="labelfont" val="SansSerif bold 11"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(390,830)" name="Tunnel">
+    <comp lib="0" loc="(440,780)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="mem_w_en"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(390,850)" name="Constant">
+    <comp lib="0" loc="(440,800)" name="Constant">
       <a name="value" val="0x110"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(390,910)" name="Tunnel">
+    <comp lib="0" loc="(440,860)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="reset"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(390,930)" name="Tunnel">
+    <comp lib="0" loc="(440,880)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="clk"/>
       <a name="labelfont" val="SansSerif bold 11"/>
@@ -6360,14 +6360,14 @@ end TCL_Generic;
       <a name="label" val="reset"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(640,850)" name="Tunnel">
-      <a name="label" val="mem_read_data"/>
-      <a name="labelfont" val="SansSerif bold 11"/>
-      <a name="width" val="32"/>
-    </comp>
     <comp lib="0" loc="(680,490)" name="Constant">
       <a name="facing" val="west"/>
       <a name="value" val="0x40000"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(690,800)" name="Tunnel">
+      <a name="label" val="mem_read_data"/>
+      <a name="labelfont" val="SansSerif bold 11"/>
       <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(880,460)" name="Tunnel">
@@ -6732,7 +6732,7 @@ fd842783 fef42223 fe842703 fe040793 fd442683 fff00613 78593 17b7
       <a name="label" val="reset"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="5" loc="(630,770)" name="Keyboard"/>
+    <comp lib="5" loc="(680,720)" name="Keyboard"/>
     <comp lib="8" loc="(130,160)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="TODO: Solve Address space"/>
@@ -6749,7 +6749,7 @@ fd842783 fef42223 fe842703 fe040793 fd442683 fff00613 78593 17b7
       <a name="font" val="Dialog plain 18"/>
       <a name="text" val="Emin FEDAR | 2020"/>
     </comp>
-    <comp lib="8" loc="(695,800)" name="Text">
+    <comp lib="8" loc="(745,750)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="keyboard"/>
     </comp>
@@ -6766,7 +6766,7 @@ fd842783 fef42223 fe842703 fe040793 fd442683 fff00613 78593 17b7
     <comp loc="(1290,380)" name="IMemCtrl"/>
     <comp loc="(360,520)" name="DMemCtrl"/>
     <comp loc="(600,180)" name="CPU"/>
-    <comp loc="(610,790)" name="KeyboardCtrl"/>
+    <comp loc="(660,740)" name="KeyboardCtrl"/>
     <wire from="(1010,480)" to="(1010,570)"/>
     <wire from="(1010,480)" to="(1070,480)"/>
     <wire from="(1010,570)" to="(1670,570)"/>
@@ -6821,12 +6821,6 @@ fd842783 fef42223 fe842703 fe040793 fd442683 fff00613 78593 17b7
     <wire from="(1400,240)" to="(1410,240)"/>
     <wire from="(1650,290)" to="(1670,290)"/>
     <wire from="(1670,290)" to="(1670,570)"/>
-    <wire from="(340,870)" to="(340,970)"/>
-    <wire from="(340,870)" to="(390,870)"/>
-    <wire from="(340,970)" to="(760,970)"/>
-    <wire from="(350,890)" to="(350,980)"/>
-    <wire from="(350,890)" to="(390,890)"/>
-    <wire from="(350,980)" to="(770,980)"/>
     <wire from="(360,520)" to="(390,520)"/>
     <wire from="(360,540)" to="(370,540)"/>
     <wire from="(360,560)" to="(590,560)"/>
@@ -6837,10 +6831,16 @@ fd842783 fef42223 fe842703 fe040793 fd442683 fff00613 78593 17b7
     <wire from="(370,650)" to="(600,650)"/>
     <wire from="(380,600)" to="(380,610)"/>
     <wire from="(390,540)" to="(590,540)"/>
+    <wire from="(390,820)" to="(390,920)"/>
+    <wire from="(390,820)" to="(440,820)"/>
+    <wire from="(390,920)" to="(810,920)"/>
     <wire from="(400,590)" to="(600,590)"/>
     <wire from="(400,600)" to="(600,600)"/>
     <wire from="(400,610)" to="(600,610)"/>
     <wire from="(400,620)" to="(600,620)"/>
+    <wire from="(400,840)" to="(400,930)"/>
+    <wire from="(400,840)" to="(440,840)"/>
+    <wire from="(400,930)" to="(820,930)"/>
     <wire from="(510,380)" to="(560,380)"/>
     <wire from="(540,400)" to="(570,400)"/>
     <wire from="(550,250)" to="(570,250)"/>
@@ -6857,17 +6857,17 @@ fd842783 fef42223 fe842703 fe040793 fd442683 fff00613 78593 17b7
     <wire from="(590,560)" to="(590,570)"/>
     <wire from="(590,570)" to="(600,570)"/>
     <wire from="(590,630)" to="(600,630)"/>
-    <wire from="(610,790)" to="(620,790)"/>
-    <wire from="(610,810)" to="(640,810)"/>
-    <wire from="(610,830)" to="(650,830)"/>
-    <wire from="(610,850)" to="(640,850)"/>
-    <wire from="(620,770)" to="(620,790)"/>
-    <wire from="(620,770)" to="(630,770)"/>
     <wire from="(640,480)" to="(640,520)"/>
-    <wire from="(640,780)" to="(640,810)"/>
-    <wire from="(650,780)" to="(650,830)"/>
-    <wire from="(760,780)" to="(760,970)"/>
-    <wire from="(770,780)" to="(770,980)"/>
+    <wire from="(660,740)" to="(670,740)"/>
+    <wire from="(660,760)" to="(690,760)"/>
+    <wire from="(660,780)" to="(700,780)"/>
+    <wire from="(660,800)" to="(690,800)"/>
+    <wire from="(670,720)" to="(670,740)"/>
+    <wire from="(670,720)" to="(680,720)"/>
+    <wire from="(690,730)" to="(690,760)"/>
+    <wire from="(700,730)" to="(700,780)"/>
+    <wire from="(810,730)" to="(810,920)"/>
+    <wire from="(820,730)" to="(820,930)"/>
     <wire from="(840,650)" to="(850,650)"/>
     <wire from="(850,500)" to="(850,650)"/>
     <wire from="(880,460)" to="(930,460)"/>
