@@ -19,9 +19,9 @@ def compile(obj, src=None, tmp=None):
             tmp = f'out/{n}.s'
 
         env.Command(tmp, src, 'riscv-none-elf-cpp -I ./src -E ${SOURCE} >${TARGET}')
-        env.Command(obj, tmp, 'riscv-none-elf-gcc -c ${SOURCE} -march=rv32i -o ${TARGET}')
+        env.Command(obj, tmp, 'riscv-none-elf-gcc -g -c ${SOURCE} -march=rv32i -o ${TARGET}')
     else:
-        env.Command(obj, src, 'riscv-none-elf-gcc -I ./src -c ${SOURCE} -march=rv32i -o ${TARGET}')
+        env.Command(obj, src, 'riscv-none-elf-gcc -g -I ./src -c ${SOURCE} -march=rv32i -o ${TARGET}')
 
 def bin2hex(bin_f, hex_f=None):
     if not hex_f:

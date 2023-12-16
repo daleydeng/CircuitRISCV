@@ -27,6 +27,7 @@
 //        Use this instead of bloated standard/newlib printf.
 //        These routines are thread safe and reentrant.
 //
+// https://github.com/mpaland/printf/tree/master
 ///////////////////////////////////////////////////////////////////////////////
 
 #ifndef _PRINTF_H_

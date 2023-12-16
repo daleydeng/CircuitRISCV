@@ -22,8 +22,8 @@ for name, src in zip(names, srcs):
 env.Command(f'bin/{main}', ['src/link.lds'] + objs, 'riscv-none-elf-ld --gc-sections -o ${TARGET} -T ${SOURCES}')
 env.Command(f'bin/{main}.hex', [f'bin/{main}', gen_text], gen_text+' ${SOURCE} > ${TARGET}')
 
-env.Command('dis', f'bin/{main}', 'riscv-none-elf-objdump.exe -d ${SOURCE}')
-env.Command('disn', f'bin/{main}', 'riscv-none-elf-objdump.exe -d ${SOURCE} -M numeric')
+env.Command('dis', f'bin/{main}', 'riscv-none-elf-objdump.exe -S ${SOURCE}')
+env.Command('disn', f'bin/{main}', 'riscv-none-elf-objdump.exe -S ${SOURCE} -M numeric')
 env.Command('clean', '', f'rm -rf out bin')
 
 Default([f'bin/{main}.hex'])
