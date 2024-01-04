@@ -43,14 +43,5 @@ clear_tty:
     sb t1, 0(t0)
     ret
 
-.globl __umodsi3
-__umodsi3:
-.globl __udivsi3 
-__udivsi3:
-.global __umoddi3
-__umoddi3:
-.global __udivdi3
-__udivdi3:
-
 
 .section .rodata

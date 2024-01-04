@@ -8,7 +8,7 @@ main = 'hello'
 
 gen_text = '../../scripts/gen_text.py'
 
-srcs = ['boot.s', 'hello.c', 'printf.c']
+srcs = ['boot.s', 'hello.c', 'printf.c', 'tinyalloc.c', 'fixups.c']
 names = [osp.splitext(osp.basename(i))[0] for i in srcs]
 
 env = set_env(Environment())

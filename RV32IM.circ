@@ -6100,7 +6100,7 @@ end TCL_Generic;
     <a name="circuit" val="main"/>
     <a name="clabelfont" val="SansSerif bold 12"/>
     <a name="clabelup" val="west"/>
-    <a name="simulationFrequency" val="512.0"/>
+    <a name="simulationFrequency" val="2048000.0"/>
     <comp lib="0" loc="(1060,360)" name="Tunnel">
       <a name="facing" val="south"/>
       <a name="label" val="PC"/>
@@ -6177,8 +6177,34 @@ end TCL_Generic;
       <a name="label" val="clk"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(1280,1130)" name="Tunnel">
-      <a name="facing" val="north"/>
+    <comp lib="0" loc="(1260,1060)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="mem_addr"/>
+      <a name="labelfont" val="SansSerif bold 11"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(1260,1080)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="mem_write_data"/>
+      <a name="labelfont" val="SansSerif bold 11"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(1260,1100)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="mem_w_en"/>
+      <a name="labelfont" val="SansSerif bold 11"/>
+    </comp>
+    <comp lib="0" loc="(1260,1120)" name="Constant">
+      <a name="value" val="0x120"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(1260,1140)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="reset"/>
+      <a name="labelfont" val="SansSerif bold 11"/>
+    </comp>
+    <comp lib="0" loc="(1260,1160)" name="Tunnel">
+      <a name="facing" val="east"/>
       <a name="label" val="clk"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
@@ -6218,6 +6244,10 @@ end TCL_Generic;
       <a name="fanout" val="1"/>
       <a name="incoming" val="32"/>
     </comp>
+    <comp lib="0" loc="(1300,440)" name="Tunnel">
+      <a name="label" val="stall"/>
+      <a name="labelfont" val="SansSerif bold 11"/>
+    </comp>
     <comp lib="0" loc="(1330,400)" name="Tunnel">
       <a name="label" val="inst"/>
       <a name="labelfont" val="SansSerif bold 11"/>
@@ -6228,12 +6258,9 @@ end TCL_Generic;
       <a name="labelfont" val="SansSerif bold 11"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(1330,440)" name="Tunnel">
-      <a name="label" val="imem_r_en"/>
-      <a name="labelfont" val="SansSerif bold 11"/>
-    </comp>
-    <comp lib="0" loc="(1330,460)" name="Tunnel">
-      <a name="label" val="stall"/>
+    <comp lib="0" loc="(1550,1050)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="clk"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
     <comp lib="0" loc="(370,540)" name="Splitter">
@@ -6303,16 +6330,21 @@ end TCL_Generic;
       <a name="label" val="mem_w_en"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(440,800)" name="Constant">
+    <comp lib="0" loc="(440,800)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="mem_r_en"/>
+      <a name="labelfont" val="SansSerif bold 11"/>
+    </comp>
+    <comp lib="0" loc="(440,820)" name="Constant">
       <a name="value" val="0x110"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(440,860)" name="Tunnel">
+    <comp lib="0" loc="(440,880)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="reset"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(440,880)" name="Tunnel">
+    <comp lib="0" loc="(440,900)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="clk"/>
       <a name="labelfont" val="SansSerif bold 11"/>
@@ -6445,37 +6477,6 @@ end TCL_Generic;
       <a name="label" val="clk"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(990,1140)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="mem_addr"/>
-      <a name="labelfont" val="SansSerif bold 11"/>
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(990,1160)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="mem_write_data"/>
-      <a name="labelfont" val="SansSerif bold 11"/>
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(990,1180)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="mem_w_en"/>
-      <a name="labelfont" val="SansSerif bold 11"/>
-    </comp>
-    <comp lib="0" loc="(990,1200)" name="Constant">
-      <a name="value" val="0x120"/>
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(990,1220)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="reset"/>
-      <a name="labelfont" val="SansSerif bold 11"/>
-    </comp>
-    <comp lib="0" loc="(990,1240)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="clk"/>
-      <a name="labelfont" val="SansSerif bold 11"/>
-    </comp>
     <comp lib="3" loc="(970,470)" name="Subtractor">
       <a name="width" val="32"/>
     </comp>
@@ -6483,30 +6484,243 @@ end TCL_Generic;
       <a name="addrWidth" val="16"/>
       <a name="appearance" val="classic"/>
       <a name="contents">addr/data: 16 32
-3117 10113 1197 ff818193 1517 ff050513 597 2bc58593
-1617 ff860613 40a60633 150000ef 1b8000ef 6f 10000293 a28023
-8067 ff810113 112023 812223 50283 2028063 50413 28513
-fd9ff0ef 40513 150513 50283 fe0294e3 412403 12083 810113
+7117 10113 3197 ff818193 3517 ff050513 2597 ce058593
+3617 c060613 40a60633 cc000ef 18c000ef 6f 10000293 a28023
 8067 10100293 50313 628023 8067 10200293 100313 628023
-8067 317 23030313 1397 f5438393 1e17 f64e0e13 1e97
-f44e8e93 41de0e33 e0e63 32e83 1d3a023 430313 438393 ffce0e13
-ffc046e3 8067 fe010113 112e23 812c23 2010413 fea42623 fec42783
-ff7f793 3078793 ff7f793 78513 f29ff0ef 13 1c12083 1812403
-2010113 8067 fd010113 2812623 3010413 fca42e23 fdc42783 fef42623
-fe042423 100006f fe842783 178793 fef42423 fec42783 178713 fee42623
-7c783 fe0792e3 fe842783 78513 2c12403 3010113 8067 fd010113
-2812623 3010413 fca42e23 fcb42c23 fcc42a23 fe042623 300006f fd842703
-470793 fcf42c23 fdc42783 478693 fcd42e23 72703 e7a023 fec42783
-178793 fef42623 fec42703 fd442783 fcf746e3 13 13 2c12403
-3010113 8067 fe010113 112e23 812c23 2010413 100513 e89ff0ef
-4300513 e35ff0ef 4800513 e2dff0ef 4100513 e25ff0ef 5200513 e1dff0ef
-3a00513 e15ff0ef 4800513 e0dff0ef 4500513 e05ff0ef 4c00513 dfdff0ef
-4c00513 df5ff0ef 4f00513 dedff0ef 2100513 de5ff0ef a00513 dddff0ef
-27b7 147a783 78513 ebdff0ef fea42423 fe042623 2c0006f 27b7
-147a703 fec42783 f707b3 7c783 78513 da5ff0ef fec42783 178793
-fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
-1c12083 1812403 2010113 8067 0 504f4f4c 6568203a 206f6c6c
-6c726f77 a2164 2000
+8067 fe010113 112e23 812c23 2010413 fea42623 fec42783 ff7f793
+3078793 ff7f793 78513 fadff0ef 13 1c12083 1812403 2010113
+8067 fd010113 2812623 3010413 fca42e23 fdc42783 fef42623 fe042423
+100006f fe842783 178793 fef42423 fec42783 178713 fee42623 7c783
+fe0792e3 fe842783 78513 2c12403 3010113 8067 fd010113 2812623
+3010413 fca42e23 fcb42c23 fcc42a23 fe042623 300006f fd842703 470793
+fcf42c23 fdc42783 478693 fcd42e23 72703 e7a023 fec42783 178793
+fef42623 fec42703 fd442783 fcf746e3 13 13 2c12403 3010113
+8067 fd010113 2112623 2812423 3010413 fca42e23 fdc42783 178713
+fce42e23 7c783 fef407a3 fef44783 78a63 fef44783 78513 e9dff0ef
+fd9ff06f 13 13 2c12083 2812403 3010113 8067 fe010113
+112e23 812c23 2010413 100513 e75ff0ef 4300513 e61ff0ef 4800513
+e59ff0ef 4100513 e51ff0ef 5200513 e49ff0ef 3a00513 e41ff0ef 4800513
+e39ff0ef 4500513 e31ff0ef 4c00513 e29ff0ef 4c00513 e21ff0ef 4f00513
+e19ff0ef 2100513 e11ff0ef a00513 e09ff0ef 47b7 d87a783 78513
+e65ff0ef fea42423 fe042623 2c0006f 47b7 d87a703 fec42783 f707b3
+7c783 78513 dd1ff0ef fec42783 178793 fef42623 fec42703 fe842783
+fcf748e3 47b7 dc7a783 78513 ed5ff0ef 47b7 2c78593 47b7
+3078513 6b4010ef 513 d99ff0ef 793 78513 1c12083 1812403
+2010113 8067 fe010113 812e23 2010413 50793 feb42423 fec42223
+fed42023 fef407a3 fe442703 fe042783 f77c63 fe842703 fe442783 f707b3
+fef44703 e78023 13 1c12403 2010113 8067 fe010113 812e23
+2010413 50793 feb42423 fec42223 fed42023 fef407a3 13 1c12403
+2010113 8067 fe010113 112e23 812c23 2010413 50793 feb42423
+fec42223 fed42023 fef407a3 fef44783 78863 fef44783 78513 cbdff0ef
+13 1c12083 1812403 2010113 8067 fe010113 112e23 812c23
+2010413 50793 feb42423 fec42223 fed42023 fef407a3 fef44783 2078263
+fe842783 7a783 fe842703 472683 fef44703 68593 70513 780e7
+13 1c12083 1812403 2010113 8067 fd010113 2812623 3010413
+fca42e23 fcb42c23 fdc42783 fef42623 100006f fec42783 178793 fef42623
+fec42783 7c783 78a63 fd842783 fff78713 fce42c23 fc079ee3 fec42703
+fdc42783 40f707b3 78513 2c12403 3010113 8067 fe010113 812e23
+2010413 50793 fef407a3 fef44703 2f00793 e7fc63 fef44703 3900793
+e7e663 100793 80006f 793 17f793 ff7f793 78513 1c12403
+2010113 8067 fd010113 2112623 2812423 3010413 fca42e23 fe042623
+400006f fec42703 70793 279793 e787b3 179793 78613 fdc42783
+7a783 178693 fdc42703 d72023 7c783 f607b3 fd078793 fef42623
+fdc42783 7a783 7c783 78513 f49ff0ef 50793 fa0796e3 fec42783
+78513 2c12083 2812403 3010113 8067 fc010113 2112e23 2812c23
+4010413 fca42e23 fcb42c23 fcc42a23 fcd42823 fce42623 fcf42423 fd042223
+fd142023 fd442783 fef42423 fc042783 27f793 8079c63 fc042783 17f793
+8079663 fc842783 fef42623 340006f fd442783 178713 fce42a23 fdc42703
+fd042683 78613 fd842583 2000513 700e7 fec42783 178793 fef42623
+fec42703 fc442783 fcf764e3 400006f fc842783 fff78793 fcf42423 fcc42703
+fc842783 f707b3 7c503 fd442783 178713 fce42a23 fdc42703 fd042683
+78613 fd842583 700e7 fc842783 fc0790e3 fc042783 27f793 4078063
+280006f fd442783 178713 fce42a23 fdc42703 fd042683 78613 fd842583
+2000513 700e7 fd442703 fe842783 40f707b3 fc442703 fce7e6e3 fd442783
+78513 3c12083 3812403 4010113 8067 fd010113 2112623 2812423
+3010413 fea42623 feb42423 fec42223 fed42023 fce42e23 fcf42c23 80793
+fd142823 fcf40ba3 842783 27f793 a079a63 442783 4078863 842783
+17f793 4078263 fd744783 79863 842783 c7f793 2078863 442783
+fff78793 f42223 200006f fd842783 178713 fce42c23 fdc42703 f707b3
+3000713 e78023 fd842703 42783 2f77863 fd842703 1f00793 fce7f8e3
+200006f fd842783 178713 fce42c23 fdc42703 f707b3 3000713 e78023
+842783 17f793 78e63 fd842703 442783 f77863 fd842703 1f00793
+fce7f2e3 842783 107f793 14078063 842783 4007f793 4079863 fd842783
+4078463 fd842703 42783 f70863 fd842703 442783 2f71863 fd842783
+fff78793 fcf42c23 fd842783 78e63 fd042703 1000793 f71863 fd842783
+fff78793 fcf42c23 fd042703 1000793 2f71e63 842783 207f793 2079863
+fd842703 1f00793 2e7e263 fd842783 178713 fce42c23 fdc42703 f707b3
+7800713 e78023 7c0006f fd042703 1000793 2f71e63 842783 207f793
+2078863 fd842703 1f00793 2e7e263 fd842783 178713 fce42c23 fdc42703
+f707b3 5800713 e78023 380006f fd042703 200793 2f71663 fd842703
+1f00793 2e7e063 fd842783 178713 fce42c23 fdc42703 f707b3 6200713
+e78023 fd842703 1f00793 2e7e063 fd842783 178713 fce42c23 fdc42703
+f707b3 3000713 e78023 fd842703 1f00793 8e7e063 fd744783 2078263
+fd842783 178713 fce42c23 fdc42703 f707b3 2d00713 e78023 580006f
+842783 47f793 2078263 fd842783 178713 fce42c23 fdc42703 f707b3
+2b00713 e78023 2c0006f 842783 87f793 2078063 fd842783 178713
+fce42c23 fdc42703 f707b3 2000713 e78023 842883 442803 fd842783
+fdc42703 fe042683 fe442603 fe842583 fec42503 be1ff0ef 50793 78513
+2c12083 2812403 3010113 8067 f9010113 6112623 6812423 7010413
+faa42e23 fab42c23 fac42a23 fad42823 fae42623 fb042223 fb142023 faf405a3
+fe042623 fac42783 79863 442783 fef7f793 f42223 442783 4007f793
+78663 fac42783 a078263 fac42783 fa442583 78513 284010ef 50793
+fef405a3 feb44703 900793 e7ea63 feb44783 3078793 ff7f793 300006f
+442783 207f793 78663 4100793 80006f 6100793 feb44703 e787b3
+ff7f793 ff678793 ff7f793 fec42703 170693 fed42623 ff070713 870733
+fcf70c23 fa442583 fac42503 1e8010ef 50793 faf42623 fac42783 78863
+fec42703 1f00793 f6e7f2e3 fab44683 fc840713 442783 f12423 42783
+f12223 fa042783 f12023 fa442883 68813 fec42783 fb042683 fb442603
+fb842583 fbc42503 bcdff0ef 50793 78513 6c12083 6812403 7010113
+8067 f8010113 6112623 6812423 7010413 faa42e23 fab42c23 fac42a23
+fad42823 fae42423 faf42623 80793 1142623 faf403a3 fe042623 fa842783
+fac42703 e7e7b3 79863 1c42783 fef7f793 f42e23 1c42783 4007f793
+78a63 fa842783 fac42703 e7e7b3 c078663 fa842703 fac42783 c42603
+1042683 70513 78593 138010ef 50713 58793 fee405a3 feb44703
+900793 e7ea63 feb44783 3078793 ff7f793 300006f 1c42783 207f793
+78663 4100793 80006f 6100793 feb44703 e787b3 ff7f793 ff678793
+ff7f793 fec42703 170693 fed42623 ff070713 870733 fcf70c23 c42603
+1042683 fa842503 fac42583 f0010ef 50713 58793 fae42423 faf42623
+fa842783 fac42703 e7e7b3 78863 fec42703 1f00793 f2e7fee3 c42603
+fa744683 fc840713 1c42783 f12423 1842783 f12223 1442783 f12023
+60893 68813 fec42783 fb042683 fb442603 fb842583 fbc42503 a39ff0ef
+50793 78513 6c12083 6812403 8010113 8067 f5010113 a112623
+a812423 b212223 b312023 9412e23 9512c23 9612a23 9712823 9812623
+9912423 9a12223 9b12023 b010413 f6a42e23 f6b42c23 f6c42a23 f6d42823
+f6e42623 fa042e23 f7842783 420796e3 17b7 31878793 f6f42e23 41d0006f
+f7042783 7c703 2500793 2f70e63 f7042783 7c503 fbc42783 178713
+fae42e23 f7c42703 f7442683 78613 f7842583 700e7 f7042783 178793
+f6f42823 3d50006f f7042783 178793 f6f42823 fc042623 f7042783 7c783
+fe078793 1000713 cf76863 279713 47b7 4878793 f707b3 7a783
+78067 fcc42783 17e793 fcf42623 f7042783 178793 f6f42823 100793
+fcf42023 9c0006f fcc42783 27e793 fcf42623 f7042783 178793 f6f42823
+100793 fcf42023 780006f fcc42783 47e793 fcf42623 f7042783 178793
+f6f42823 100793 fcf42023 540006f fcc42783 87e793 fcf42623 f7042783
+178793 f6f42823 100793 fcf42023 300006f fcc42783 107e793 fcf42623
+f7042783 178793 f6f42823 100793 fcf42023 c0006f fc042023 13
+fc042783 f0079ae3 fc042423 f7042783 7c783 78513 e40ff0ef 50793
+78c63 f7040793 78513 e7cff0ef fca42423 600006f f7042783 7c703
+2a00793 4f71863 f6c42783 478713 f6e42623 7a783 faf42423 fa842783
+207d063 fcc42783 27e793 fcf42623 fa842783 40f007b3 fcf42423 c0006f
+fa842783 fcf42423 f7042783 178793 f6f42823 fc042223 f7042783 7c703
+2e00793 8f71463 fcc42783 4007e793 fcf42623 f7042783 178793 f6f42823
+f7042783 7c783 78513 d8cff0ef 50793 78c63 f7040793 78513
+dc8ff0ef fca42223 440006f f7042783 7c703 2a00793 2f71a63 f6c42783
+478713 f6e42623 7a783 faf42223 fa442783 7d463 793 fcf42223
+f7042783 178793 f6f42823 f7042783 7c783 f9878793 1200713 ef76c63
+279713 47b7 8c78793 f707b3 7a783 78067 fcc42783 1007e793
+fcf42623 f7042783 178793 f6f42823 f7042783 7c703 6c00793 cf71063
+fcc42783 2007e793 fcf42623 f7042783 178793 f6f42823 a40006f fcc42783
+807e793 fcf42623 f7042783 178793 f6f42823 f7042783 7c703 6800793
+8f71263 fcc42783 407e793 fcf42623 f7042783 178793 f6f42823 680006f
+fcc42783 1007e793 fcf42623 f7042783 178793 f6f42823 500006f fcc42783
+2007e793 fcf42623 f7042783 178793 f6f42823 340006f fcc42783 1007e793
+fcf42623 f7042783 178793 f6f42823 180006f 13 100006f 13
+80006f 13 f7042783 7c783 7800713 4f746e3 6400713 2e7dc63
+6300713 50e78063 6300713 2f74ae3 6200713 6e78863 6200713 2f742e3
+2500713 7ee78463 5800713 4e78c63 110006f f9c78793 100713 f717b3
+121737 82170713 e7f733 e03733 ff77713 2071863 1737 e7f733
+e03733 ff77713 6c071663 8737 e7f7b3 f037b3 ff7f793 56079263
+7c00006f f7042783 7c703 7800793 f70a63 f7042783 7c703 5800793
+f71863 1000793 faf42c23 500006f f7042783 7c703 6f00793 f71863
+800793 faf42c23 340006f f7042783 7c703 6200793 f71863 200793
+faf42c23 180006f a00793 faf42c23 fcc42783 fef7f793 fcf42623 f7042783
+7c703 5800793 f71863 fcc42783 207e793 fcf42623 f7042783 7c703
+6900793 2f70063 f7042783 7c703 6400793 f70863 fcc42783 ff37f793
+fcf42623 fcc42783 4007f793 78863 fcc42783 ffe7f793 fcf42623 f7042783
+7c703 6900793 f70a63 f7042783 7c703 6400793 20f71e63 fcc42783
+2007f793 c078863 f6c42783 778793 ff87f793 878713 f6e42623 7a703
+47a783 f8e42423 f8f42623 f8c42783 41f7d913 f8c42783 41f7d993 f8842783
+127ca33 f8c42783 137cab3 412a0733 70693 da36b3 413a87b3 40d786b3
+68793 70a13 78a93 a0613 a8693 f8c42783 1f7d793 ff7f713
+fb842783 78b13 b93 fcc42783 f12623 fc842783 f12423 fc442783
+f12223 1712023 b0893 70813 60713 68793 f7442683 fbc42603
+f7842583 f7c42503 81dff0ef faa42e23 2a40006f fcc42783 1007f793 6078c63
+f6c42783 478713 f6e42623 7a783 f8f42a23 f9442783 41f7d713 f9442783
+f747b3 40e787b3 78693 f9442783 1f7d793 ff7f713 fcc42783 f12223
+fc842783 f12023 fc442883 fb842803 70793 68713 f7442683 fbc42603
+f7842583 f7c42503 e48ff0ef faa42e23 2240006f fcc42783 407f793 78e63
+f6c42783 478713 f6e42623 7a783 ff7f793 3c0006f fcc42783 807f793
+2078063 f6c42783 478713 f6e42623 7a783 1079793 4107d793 140006f
+f6c42783 478713 f6e42623 7a783 f8f42c23 f9842783 41f7d713 f9842783
+f747b3 40e787b3 78693 f9842783 1f7d793 ff7f713 fcc42783 f12223
+fc842783 f12023 fc442883 fb842803 70793 68713 f7442683 fbc42603
+f7842583 f7c42503 d88ff0ef faa42e23 1640006f fcc42783 2007f793 6078663
+f6c42783 778793 ff87f793 878713 f6e42623 7a703 47a783 fb842683
+68c13 c93 fcc42683 d12623 fc842683 d12423 fc442683 d12223
+1912023 c0893 813 f7442683 fbc42603 f7842583 f7c42503 e68ff0ef
+faa42e23 f00006f fcc42783 1007f793 4078663 f6c42783 478713 f6e42623
+7a703 fcc42783 f12223 fc842783 f12023 fc442883 fb842803 793
+f7442683 fbc42603 f7842583 f7c42503 cc0ff0ef faa42e23 9c0006f fcc42783
+407f793 78e63 f6c42783 478713 f6e42623 7a783 ff7f793 3c0006f
+fcc42783 807f793 2078063 f6c42783 478713 f6e42623 7a783 1079793
+107d793 140006f f6c42783 478713 f6e42623 7a783 f8f42e23 fcc42783
+f12223 fc842783 f12023 fc442883 fb842803 793 f9c42703 f7442683
+fbc42603 f7842583 f7c42503 c24ff0ef faa42e23 f7042783 178793 f6f42823
+3780006f 100793 faf42a23 fcc42783 27f793 4079063 280006f fbc42783
+178713 fae42e23 f7c42703 f7442683 78613 f7842583 2000513 700e7
+fb442783 178713 fae42a23 fc842703 fce7e6e3 f6c42783 478713 f6e42623
+7a783 ff7f513 fbc42783 178713 fae42e23 f7c42703 f7442683 78613
+f7842583 700e7 fcc42783 27f793 4078063 280006f fbc42783 178713
+fae42e23 f7c42703 f7442683 78613 f7842583 2000513 700e7 fb442783
+178713 fae42a23 fc842703 fce7e6e3 f7042783 178793 f6f42823 29c0006f
+f6c42783 478713 f6e42623 7a783 faf42823 fc442783 78663 fc442783
+80006f fff00793 78593 fb042503 d85fe0ef faa42623 fcc42783 4007f793
+78c63 fac42703 fc442783 f77463 70793 faf42623 fcc42783 27f793
+6079a63 280006f fbc42783 178713 fae42e23 f7c42703 f7442683 78613
+f7842583 2000513 700e7 fac42783 178713 fae42623 fc842703 fce7e6e3
+340006f fb042783 178713 fae42823 7c503 fbc42783 178713 fae42e23
+f7c42703 f7442683 78613 f7842583 700e7 fb042783 7c783 2078063
+fcc42783 4007f793 fa078ee3 fc442783 fff78713 fce42223 fa0796e3 fcc42783
+27f793 4078063 280006f fbc42783 178713 fae42e23 f7c42703 f7442683
+78613 f7842583 2000513 700e7 fac42783 178713 fae42623 fc842703
+fce7e6e3 f7042783 178793 f6f42823 1480006f 800793 fcf42423 fcc42783
+217e793 fcf42623 fa0401a3 fa344783 6078263 f6c42783 478713 f6e42623
+7a783 78d13 d93 fcc42783 f12623 fc842783 f12423 fc442783
+f12223 12023 1000893 813 d0713 d8793 f7442683 fbc42603
+f7842583 f7c42503 abcff0ef faa42e23 4c0006f f6c42783 478713 f6e42623
+7a783 78713 fcc42783 f12223 fc842783 f12023 fc442883 1000813
+793 f7442683 fbc42603 f7842583 f7c42503 91cff0ef faa42e23 f7042783
+178793 f6f42823 700006f fbc42783 178713 fae42e23 f7c42703 f7442683
+78613 f7842583 2500513 700e7 f7042783 178793 f6f42823 3c0006f
+f7042783 7c503 fbc42783 178713 fae42e23 f7c42703 f7442683 78613
+f7842583 700e7 f7042783 178793 f6f42823 13 f7042783 7c783
+be079063 fbc42703 f7442783 f76863 f7442783 fff78793 80006f fbc42783
+f7c42703 f7442683 78613 f7842583 513 700e7 fbc42783 78513
+ac12083 a812403 a412903 a012983 9c12a03 9812a83 9412b03 9012b83
+8c12c03 8812c83 8412d03 8012d83 b010113 8067 fb010113 2112623
+2812423 3010413 fca42e23 b42223 c42423 d42623 e42823 f42a23
+1042c23 1142e23 2040793 fcf42c23 fd842783 fe478793 fef42423 fe842703
+fe440793 fdc42683 fff00613 78593 17b7 34878513 aa0ff0ef fea42623
+fec42783 78513 2c12083 2812403 5010113 8067 fb010113 2112623
+2812423 3010413 fca42e23 fcb42c23 c42423 d42623 e42823 f42a23
+1042c23 1142e23 2040793 fcf42a23 fd442783 fe878793 fef42423 fe842783
+78713 fd842683 fff00613 fdc42583 17b7 2c878513 a20ff0ef fea42623
+fec42783 78513 2c12083 2812403 5010113 8067 fb010113 2112623
+2812423 3010413 fca42e23 fcb42c23 fcc42a23 d42623 e42823 f42a23
+1042c23 1142e23 2040793 fcf42823 fd042783 fec78793 fef42423 fe842783
+78713 fd442683 fd842603 fdc42583 17b7 2c878513 9a0ff0ef fea42623
+fec42783 78513 2c12083 2812403 5010113 8067 fd010113 2112623
+2812423 3010413 fca42e23 fcb42c23 fec40793 fd842703 fdc42683 fff00613
+78593 17b7 34878513 94cff0ef 50793 78513 2c12083 2812403
+3010113 8067 fe010113 112e23 812c23 2010413 fea42623 feb42423
+fec42223 fed42023 fe042703 fe442683 fe842603 fec42583 17b7 2c878513
+8f8ff0ef 50793 78513 1c12083 1812403 2010113 8067 fb010113
+2112623 2812423 3010413 fca42e23 fcb42c23 fcc42a23 d42623 e42823
+f42a23 1042c23 1142e23 2040793 fcf42823 fd042783 fec78793 fef42423
+fdc42783 fef42023 fd842783 fef42223 fe842703 fe040793 fd442683 fff00613
+78593 17b7 39478513 86cff0ef fea42623 fec42783 78513 2c12083
+2812403 5010113 8067 fe010113 812e23 2010413 fea42623 feb42423
+793 78513 1c12403 2010113 8067 fe010113 812e23 2010413
+fea42623 feb42423 793 78513 1c12403 2010113 8067 fe010113
+812e23 2010413 fea42623 feb42423 793 78513 1c12403 2010113
+8067 fe010113 812e23 2010413 fea42423 feb42623 fec42023 fed42223
+713 793 70513 78593 1c12403 2010113 8067 fe010113
+812e23 2010413 fea42423 feb42623 fec42023 fed42223 713 793
+70513 78593 1c12403 2010113 8067 0 7475705f 72616863
+6568203a 206f6c6c 6c726f77 a2164 73747570 6568203a 206f6c6c 6c726f77
+a2164 43 4e495250 203a4654 6c6c6568 7266206f 25206d6f a2173
+1db0 1df8 1df8 1dd4 7*1df8 1d8c 1df8 1d68
+1df8 1df8 1d44 1f9c 2034 1ffc 2034 1f58
+7*2034 1fe0 5*2034 2018 4000 4018
 </a>
       <a name="dataWidth" val="32"/>
       <a name="label" val="IMEM"/>
@@ -6522,7 +6736,7 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
       <a name="labelfont" val="SansSerif bold 15"/>
     </comp>
     <comp lib="5" loc="(1240,720)" name="TTY"/>
-    <comp lib="5" loc="(1270,1120)" name="RGB Video">
+    <comp lib="5" loc="(1540,1040)" name="RGB Video">
       <a name="height" val="256"/>
       <a name="scale" val="1"/>
       <a name="width" val="256"/>
@@ -6532,10 +6746,6 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
       <a name="labelloc" val="north"/>
     </comp>
     <comp lib="5" loc="(680,720)" name="Keyboard"/>
-    <comp lib="8" loc="(130,160)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="TODO: Solve Address space"/>
-    </comp>
     <comp lib="8" loc="(1345,745)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="tty"/>
@@ -6544,9 +6754,13 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
       <a name="font" val="Dialog plain 24"/>
       <a name="text" val="RISC-V Computer (RV32IM)"/>
     </comp>
-    <comp lib="8" loc="(655,55)" name="Text">
-      <a name="font" val="Dialog plain 18"/>
-      <a name="text" val="Emin FEDAR | 2020"/>
+    <comp lib="8" loc="(695,45)" name="Text">
+      <a name="font" val="Dialog plain 25"/>
+      <a name="text" val="Developed by DaleyDeng | 2023"/>
+    </comp>
+    <comp lib="8" loc="(705,475)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="dram size"/>
     </comp>
     <comp lib="8" loc="(745,750)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
@@ -6556,13 +6770,9 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="init_pc"/>
     </comp>
-    <comp lib="8" loc="(910,55)" name="Text">
-      <a name="font" val="Dialog plain 18"/>
-      <a name="text" val="Modified by DaleyDeng | 2023"/>
-    </comp>
     <comp loc="(1180,700)" name="TTYCtrl"/>
-    <comp loc="(1210,1140)" name="VideoCtrl"/>
     <comp loc="(1290,380)" name="IMemCtrl"/>
+    <comp loc="(1480,1060)" name="VideoCtrl"/>
     <comp loc="(360,520)" name="DMemCtrl"/>
     <comp loc="(600,180)" name="CPU"/>
     <comp loc="(660,740)" name="KeyboardCtrl"/>
@@ -6592,32 +6802,31 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
     <wire from="(120,560)" to="(140,560)"/>
     <wire from="(1200,720)" to="(1200,740)"/>
     <wire from="(1200,740)" to="(1250,740)"/>
-    <wire from="(1210,1140)" to="(1270,1140)"/>
-    <wire from="(1210,1160)" to="(1290,1160)"/>
-    <wire from="(1210,1180)" to="(1310,1180)"/>
-    <wire from="(1210,1200)" to="(1320,1200)"/>
-    <wire from="(1210,1220)" to="(1330,1220)"/>
     <wire from="(1230,700)" to="(1230,710)"/>
     <wire from="(1230,710)" to="(1240,710)"/>
     <wire from="(1230,720)" to="(1240,720)"/>
     <wire from="(1250,730)" to="(1250,740)"/>
     <wire from="(1260,730)" to="(1260,750)"/>
-    <wire from="(1270,1120)" to="(1270,1140)"/>
-    <wire from="(1280,1120)" to="(1280,1130)"/>
-    <wire from="(1290,1120)" to="(1290,1160)"/>
     <wire from="(1290,400)" to="(1330,400)"/>
     <wire from="(1290,420)" to="(1330,420)"/>
-    <wire from="(1290,440)" to="(1330,440)"/>
-    <wire from="(1290,460)" to="(1330,460)"/>
+    <wire from="(1290,440)" to="(1300,440)"/>
     <wire from="(130,500)" to="(130,600)"/>
     <wire from="(130,500)" to="(850,500)"/>
     <wire from="(130,600)" to="(140,600)"/>
-    <wire from="(1310,1120)" to="(1310,1180)"/>
     <wire from="(1310,380)" to="(1400,380)"/>
-    <wire from="(1320,1120)" to="(1320,1200)"/>
-    <wire from="(1330,1120)" to="(1330,1220)"/>
     <wire from="(1400,240)" to="(1400,380)"/>
     <wire from="(1400,240)" to="(1410,240)"/>
+    <wire from="(1480,1060)" to="(1540,1060)"/>
+    <wire from="(1480,1080)" to="(1560,1080)"/>
+    <wire from="(1480,1100)" to="(1580,1100)"/>
+    <wire from="(1480,1120)" to="(1590,1120)"/>
+    <wire from="(1480,1140)" to="(1600,1140)"/>
+    <wire from="(1540,1040)" to="(1540,1060)"/>
+    <wire from="(1550,1040)" to="(1550,1050)"/>
+    <wire from="(1560,1040)" to="(1560,1080)"/>
+    <wire from="(1580,1040)" to="(1580,1100)"/>
+    <wire from="(1590,1040)" to="(1590,1120)"/>
+    <wire from="(1600,1040)" to="(1600,1140)"/>
     <wire from="(1650,290)" to="(1670,290)"/>
     <wire from="(1670,290)" to="(1670,570)"/>
     <wire from="(360,520)" to="(390,520)"/>
@@ -6630,15 +6839,15 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
     <wire from="(370,650)" to="(600,650)"/>
     <wire from="(380,600)" to="(380,610)"/>
     <wire from="(390,540)" to="(590,540)"/>
-    <wire from="(390,820)" to="(390,920)"/>
-    <wire from="(390,820)" to="(440,820)"/>
+    <wire from="(390,840)" to="(390,920)"/>
+    <wire from="(390,840)" to="(440,840)"/>
     <wire from="(390,920)" to="(810,920)"/>
     <wire from="(400,590)" to="(600,590)"/>
     <wire from="(400,600)" to="(600,600)"/>
     <wire from="(400,610)" to="(600,610)"/>
     <wire from="(400,620)" to="(600,620)"/>
-    <wire from="(400,840)" to="(400,930)"/>
-    <wire from="(400,840)" to="(440,840)"/>
+    <wire from="(400,860)" to="(400,930)"/>
+    <wire from="(400,860)" to="(440,860)"/>
     <wire from="(400,930)" to="(820,930)"/>
     <wire from="(510,380)" to="(560,380)"/>
     <wire from="(540,400)" to="(570,400)"/>
@@ -7582,43 +7791,51 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
       <a name="label" val="w_en"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(190,130)" name="Pin">
+    <comp lib="0" loc="(140,130)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="r_en"/>
+    </comp>
+    <comp lib="0" loc="(140,130)" name="Tunnel">
+      <a name="label" val="r_en"/>
+      <a name="labelfont" val="SansSerif bold 11"/>
+    </comp>
+    <comp lib="0" loc="(190,160)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="base_addr"/>
       <a name="radix" val="16"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(190,130)" name="Tunnel">
+    <comp lib="0" loc="(190,160)" name="Tunnel">
       <a name="label" val="base_addr"/>
       <a name="labelfont" val="SansSerif bold 11"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(190,160)" name="Pin">
+    <comp lib="0" loc="(190,190)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="kb_available"/>
     </comp>
-    <comp lib="0" loc="(190,160)" name="Tunnel">
+    <comp lib="0" loc="(190,190)" name="Tunnel">
       <a name="label" val="kb_available"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(190,190)" name="Pin">
+    <comp lib="0" loc="(190,220)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="kb_data"/>
       <a name="width" val="7"/>
     </comp>
-    <comp lib="0" loc="(190,220)" name="Pin">
+    <comp lib="0" loc="(190,250)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="reset"/>
     </comp>
-    <comp lib="0" loc="(190,220)" name="Tunnel">
+    <comp lib="0" loc="(190,250)" name="Tunnel">
       <a name="label" val="reset"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(190,250)" name="Pin">
+    <comp lib="0" loc="(190,280)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="clk"/>
     </comp>
-    <comp lib="0" loc="(190,250)" name="Tunnel">
+    <comp lib="0" loc="(190,280)" name="Tunnel">
       <a name="label" val="clk"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
@@ -7661,7 +7878,7 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
       <a name="labelfont" val="SansSerif bold 11"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(200,190)" name="Tunnel">
+    <comp lib="0" loc="(200,220)" name="Tunnel">
       <a name="label" val="kb_data"/>
       <a name="labelfont" val="SansSerif bold 11"/>
       <a name="width" val="7"/>
@@ -7842,7 +8059,7 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
     </comp>
     <comp lib="0" loc="(630,360)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="label" val="w_en"/>
+      <a name="label" val="r_en"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
     <comp lib="0" loc="(630,390)" name="Tunnel">
@@ -7950,9 +8167,7 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
     <comp lib="1" loc="(300,430)" name="AND Gate"/>
     <comp lib="1" loc="(310,590)" name="AND Gate"/>
     <comp lib="1" loc="(720,590)" name="AND Gate"/>
-    <comp lib="1" loc="(750,380)" name="AND Gate">
-      <a name="negate0" val="true"/>
-    </comp>
+    <comp lib="1" loc="(750,380)" name="AND Gate"/>
     <comp lib="1" loc="(870,330)" name="NOT Gate">
       <a name="facing" val="south"/>
     </comp>
@@ -7993,7 +8208,7 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
     <wire from="(150,460)" to="(190,460)"/>
     <wire from="(150,620)" to="(150,640)"/>
     <wire from="(150,620)" to="(200,620)"/>
-    <wire from="(190,190)" to="(200,190)"/>
+    <wire from="(190,220)" to="(200,220)"/>
     <wire from="(190,540)" to="(230,540)"/>
     <wire from="(190,570)" to="(260,570)"/>
     <wire from="(190,600)" to="(200,600)"/>
@@ -8032,7 +8247,7 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
     <wire from="(600,600)" to="(610,600)"/>
     <wire from="(630,310)" to="(720,310)"/>
     <wire from="(630,330)" to="(710,330)"/>
-    <wire from="(630,360)" to="(690,360)"/>
+    <wire from="(630,360)" to="(700,360)"/>
     <wire from="(630,390)" to="(640,390)"/>
     <wire from="(630,410)" to="(640,410)"/>
     <wire from="(650,610)" to="(670,610)"/>
@@ -8245,21 +8460,12 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
       <a name="label" val="cur_state"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(510,240)" name="Pin">
-      <a name="appearance" val="classic"/>
-      <a name="label" val="imem_r_en"/>
-      <a name="output" val="true"/>
-    </comp>
-    <comp lib="0" loc="(510,270)" name="Pin">
+    <comp lib="0" loc="(510,220)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="label" val="stall"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="0" loc="(530,240)" name="Tunnel">
-      <a name="label" val="imem_r_en"/>
-      <a name="labelfont" val="SansSerif bold 11"/>
-    </comp>
-    <comp lib="0" loc="(530,270)" name="Tunnel">
+    <comp lib="0" loc="(530,220)" name="Tunnel">
       <a name="label" val="stall"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
@@ -8456,8 +8662,7 @@ fef42623 fec42703 fe842783 fcf748e3 513 dd1ff0ef 793 78513
     <wire from="(480,710)" to="(480,830)"/>
     <wire from="(480,710)" to="(530,710)"/>
     <wire from="(500,910)" to="(540,910)"/>
-    <wire from="(510,240)" to="(530,240)"/>
-    <wire from="(510,270)" to="(530,270)"/>
+    <wire from="(510,220)" to="(530,220)"/>
     <wire from="(540,720)" to="(540,730)"/>
     <wire from="(560,700)" to="(590,700)"/>
     <wire from="(580,130)" to="(590,130)"/>
