@@ -20,4 +20,4 @@ To open the circuit, please use Logisim Evolution.
 - riscv-none-elf-*: A build toolchain for compiling examples.
 
 # TODO
-- Add support for rust::nostd for embedded systems.
+- Add support for rust::no_std for embedded systems.
